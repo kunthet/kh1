@@ -31,10 +31,11 @@ One place for Khmer office & text-processing tools.
 - 💬 Direct Telegram contact link
 - 🚀 Fast loading (minimal dependencies)
 - 👍 **Firebase voting widget** - Let users vote to support the project
+- 📊 **Visitor tracking** - Automatically count unique visitors
 
-## 🗳️ Firebase Voting Widget Setup
+## 🗳️ Firebase Voting & Visitor Widget Setup
 
-The site includes a lightweight voting widget powered by Firebase Realtime Database.
+The site includes a lightweight widget powered by Firebase Realtime Database that tracks both votes and unique visitors.
 
 **Quick Setup:**
 1. Create a Firebase project (free tier)

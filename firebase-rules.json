@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "votes": {
+      ".read": true,
+      "total": {
+        ".write": "!data.exists() || newData.val() == data.val() + 1",
+        ".validate": "newData.isNumber() && newData.val() >= 0"
+      }
+    },
+    "visitors": {
+      ".read": true,
+      "total": {
+        ".write": "!data.exists() || newData.val() == data.val() + 1",
+        ".validate": "newData.isNumber() && newData.val() >= 0"
+      }
+    }
+  }
+}

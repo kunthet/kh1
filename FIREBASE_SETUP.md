@@ -1,17 +1,18 @@
-# Firebase Vote Widget Setup Guide
+# Firebase Vote & Visitor Widget Setup Guide
 
 ## Overview
 
-This voting widget allows users to vote for your project and displays the total vote count in real-time. It's designed to be:
+This widget allows users to vote for your project and automatically tracks unique visitors. It displays both metrics in real-time. It's designed to be:
 - ⚡ **Lightweight**: Scripts load asynchronously, no impact on initial page load
 - 🔍 **SEO-friendly**: Static HTML content remains crawlable
 - 📱 **Responsive**: Works on all devices
-- 🚀 **Fast**: Uses localStorage to prevent duplicate votes, minimal Firebase calls
+- 🚀 **Fast**: Uses localStorage to prevent duplicate votes/visits, minimal Firebase calls
+- 📊 **Analytics**: Tracks both votes and unique visitors
 
 ## Should You Move to Firebase Hosting?
 
 **NO** - You can keep GitHub Pages! The widget only uses:
-- **Firebase Realtime Database** for storing vote counts
+- **Firebase Realtime Database** for storing vote & visitor counts
 - Your site stays on GitHub Pages (free, fast, great SEO)
 
 ## Step 1: Create a Firebase Project
@@ -42,19 +43,28 @@ After creating the database, set up security rules:
     "votes": {
       ".read": true,
       "total": {
-        ".write": true,
-        ".validate": "newData.isNumber() && newData.val() <= data.val() + 1"
+        ".write": "!data.exists() || newData.val() == data.val() + 1",
+        ".validate": "newData.isNumber() && newData.val() >= 0"
+      }
+    },
+    "visitors": {
+      ".read": true,
+      "total": {
+        ".write": "!data.exists() || newData.val() == data.val() + 1",
+        ".validate": "newData.isNumber() && newData.val() >= 0"
       }
     }
   }
 }
 ```
 
+**Or simply copy the rules from `firebase-rules.json` in your project root.**
+
 This configuration:
-- ✅ Anyone can read the vote count
-- ✅ Anyone can increment by 1 (vote)
+- ✅ Anyone can read the vote & visitor counts
+- ✅ Anyone can increment by 1 (vote or visit)
 - ❌ Cannot decrease or set arbitrary numbers
-- ❌ Prevents spam by limiting increments
+- ❌ Prevents spam by limiting increments to +1 only
 
 3. Click **"Publish"**
 
@@ -118,11 +128,18 @@ git push origin main
 1. Open your website in a browser
 2. You should see:
    - Vote count (starts at 0)
+   - Visitor count (automatically increments on first visit)
    - A clickable vote button (👍)
    - "Vote to support this project!" text
-3. Click the vote button
-4. The button should change to ✓ and count should increase
-5. Try refreshing - you shouldn't be able to vote again
+3. The visitor count should increment automatically (once per browser)
+4. Click the vote button
+5. The button should change to ✓ and vote count should increase
+6. Try refreshing - you shouldn't be able to vote again or be counted as a new visitor
+
+**How it works:**
+- **Visitors**: Tracked automatically on first page load using localStorage key `onekh_visited`
+- **Votes**: Tracked when user clicks the vote button using localStorage key `onekh_voted`
+- Both counts update in real-time across all connected browsers
 
 ## Security Considerations
 
@@ -131,12 +148,14 @@ The Firebase API key in your code is **safe to expose**. It's designed to be pub
 - Database Rules (set in Step 2)
 - Firebase Authentication (if you add it later)
 
-### Preventing Vote Manipulation
+### Preventing Vote & Visitor Manipulation
 
 Current protection:
-- ✅ LocalStorage prevents same browser from voting twice
+- ✅ LocalStorage prevents same browser from voting twice (`onekh_voted`)
+- ✅ LocalStorage prevents same browser from being counted as visitor twice (`onekh_visited`)
 - ✅ Database rules prevent arbitrary number changes
 - ✅ Can only increment by 1 per transaction
+- ✅ Separate tracking for votes and visitors
 
 For stronger protection (optional):
 1. Add Firebase Authentication
@@ -171,18 +190,23 @@ exports.recordVote = functions.https.onCall(async (data, context) => {
 
 ## Monitoring & Analytics
 
-### View Vote Count in Firebase Console
+### View Metrics in Firebase Console
 1. Go to **Realtime Database**
-2. Navigate to `/votes/total`
-3. See real-time vote count
+2. Navigate to see:
+   - `/votes/total` - Total vote count
+   - `/visitors/total` - Total unique visitors
+3. See real-time updates as users interact with your site
 
 ### Export Data
 ```javascript
 // In Firebase Console → Realtime Database → Export JSON
 // Or programmatically:
-const snapshot = await firebase.database().ref('votes').once('value');
-const data = snapshot.val();
-console.log(`Total votes: ${data.total}`);
+const votesSnapshot = await firebase.database().ref('votes/total').once('value');
+const visitorsSnapshot = await firebase.database().ref('visitors/total').once('value');
+
+console.log(`Total votes: ${votesSnapshot.val()}`);
+console.log(`Total visitors: ${visitorsSnapshot.val()}`);
+console.log(`Vote rate: ${(votesSnapshot.val() / visitorsSnapshot.val() * 100).toFixed(1)}%`);
 ```
 
 ## Troubleshooting
