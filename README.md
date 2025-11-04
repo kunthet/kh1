@@ -29,7 +29,28 @@ One place for Khmer office & text-processing tools.
 - 📱 Mobile-friendly
 - 🎨 Beautiful gradient styling
 - 💬 Direct Telegram contact link
-- 🚀 Fast loading (no external dependencies)
+- 🚀 Fast loading (minimal dependencies)
+- 👍 **Firebase voting widget** - Let users vote to support the project
+
+## 🗳️ Firebase Voting Widget Setup
+
+The site includes a lightweight voting widget powered by Firebase Realtime Database.
+
+**Quick Setup:**
+1. Create a Firebase project (free tier)
+2. Enable Realtime Database
+3. Update `vote-widget.js` with your Firebase config
+
+📖 **[Full Setup Guide](FIREBASE_SETUP.md)** - Detailed instructions with security best practices
+
+**Benefits:**
+- ⚡ Zero impact on page load (async loading)
+- 🔍 SEO-friendly (no content blocking)
+- 📊 Real-time vote counting
+- 🚫 Anti-spam protection (localStorage + database rules)
+- 💰 Free tier sufficient for most sites
+
+**Note:** Keep GitHub Pages hosting! Only use Firebase for the voting database.
 
 ## 📞 Contact
 

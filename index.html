@@ -22,6 +22,8 @@
     <meta name="twitter:title" content="OneKH - Coming Soon">
     <meta name="twitter:description" content="One place for Khmer office & text-processing tools, coming soon.">
     <title>OneKH - Coming Soon</title>
+    <link rel="stylesheet" href="vote-widget.css" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="vote-widget.css"></noscript>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -256,14 +258,13 @@
         <div class="status">Coming Soon</div>
         
         <p class="description">
-            Your comprehensive platform for <b>Khmer office and text-processing tools</b>. <br>
-            <i>We're building something special to make working with Khmer language easier and more efficient.</i>
+            Your comprehensive platform for <b>Khmer office and text-processing tools</b>
         </p>
 
         <section class="features" aria-label="Highlighted capabilities">
             <article class="feature">
                 <h3 class="feature-title">📝 Office Tools</h3>
-                <p class="feature-text">Complete suite of Khmer-friendly office utilities</p>
+                <p class="feature-text">Complete suite <b><i>office addins</i></b> of Khmer-friendly utilities</p>
             </article>
             <article class="feature">
                 <h3 class="feature-title">✨ Text Processing</h3>
@@ -275,6 +276,17 @@
             </article>
         </section>
 
+        <div id="vote-widget" data-vote-text="Vote to support this project!" data-voted-text="Thanks for your support! ✓">
+            <div class="vote-header">
+                <button class="vote-btn" aria-label="Vote button">⏳</button>
+                <div>
+                    <p class="vote-count">0</p>
+                    <p class="vote-text">Vote to support this project!</p>
+                </div>
+            </div>
+            <p class="vote-subtext">Help us prioritize development</p>
+        </div>
+
         <section class="contact" aria-label="Contact information">
             <p class="contact-title">Get in touch with us</p>
             <a href="https://t.me/kh1tools" target="_blank" rel="noopener noreferrer" class="telegram-btn">
@@ -285,5 +297,6 @@
             </a>
         </section>
     </main>
+    <script src="vote-widget.js" async></script>
 </body>
 </html>

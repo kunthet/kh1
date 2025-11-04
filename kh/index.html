@@ -22,6 +22,8 @@
     <meta name="twitter:title" content="OneKH - ឆាប់ៗនេះ">
     <meta name="twitter:description" content="សម្រាប់ការងារការិយាល័យ និងជំនួយក្នុងការរៀបចំអត្ថបទភាសាខ្មែរ។">
     <title>OneKH - ឆាប់ៗនេះ</title>
+    <link rel="stylesheet" href="../vote-widget.css" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link rel="stylesheet" href="../vote-widget.css"></noscript>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -263,13 +265,12 @@
         
         <p class="description">
             <b>សម្រាប់ការងារការិយាល័យ និងជំនួយក្នុងការរៀបចំអត្ថបទភាសាខ្មែរ។</b> <br>
-            <i>ក្រុមការងារកំពុងបង្កើតឧបករណ៍ពិសេសជាជំនួយដល់ការសរសេរភាសាខ្មែរឱ្យកាន់តែងាយស្រួល មានប្រសិទ្ធភាព និងប្រកបដោយភាពជឿរជាក់។</i>
         </p>
 
         <section class="features" aria-label="លក្ខណៈពិសេស">
             <article class="feature">
                 <h3 class="feature-title">📝 ឧបករណ៍ការិយាល័យ</h3>
-                <p class="feature-text">ឧបករណ៍ប្រើប្រាស់ការិយាល័យគ្រប់ជ្រុងជ្រោយដែលងាយស្រួលជាមួយភាសាខ្មែរ</p>
+                <p class="feature-text"><b><i>Office addins</i></b> ដែលងាយស្រួលរៀបចំអត្ថបទភាសាខ្មែរ</p>
             </article>
             <article class="feature">
                 <h3 class="feature-title">✨ ការរៀបចំអត្ថបទ</h3>
@@ -281,6 +282,17 @@
             </article>
         </section>
 
+        <div id="vote-widget" data-vote-text="បោះឆ្នោតគាំទ្រគម្រោងនេះ!" data-voted-text="អរគុណសម្រាប់ការគាំទ្រ! ✓">
+            <div class="vote-header">
+                <button class="vote-btn" aria-label="Vote button">⏳</button>
+                <div>
+                    <p class="vote-count">0</p>
+                    <p class="vote-text">បោះឆ្នោតគាំទ្រគម្រោងនេះ!</p>
+                </div>
+            </div>
+            <p class="vote-subtext">ចូលរួមជួយជម្រុញការអភិវឌ្ឍនេះ</p>
+        </div>
+
         <section class="contact" aria-label="ទាក់ទងមកក្រុមការងារ">
             <p class="contact-title">ទាក់ទងក្រុមការងារ</p>
             <a href="https://t.me/kh1tools" target="_blank" rel="noopener noreferrer" class="telegram-btn">
@@ -291,5 +303,6 @@
             </a>
         </section>
     </main>
+    <script src="../vote-widget.js" async></script>
 </body>
 </html>
