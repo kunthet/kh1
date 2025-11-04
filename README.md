@@ -12,7 +12,7 @@ One place for Khmer office & text-processing tools.
    git add .
    git commit -m "Add coming soon page"
    git branch -M main
-   git remote add origin https://github.com/kunthet/kh1-site.git
+   git remote add origin https://github.com/kunthet/kh1.git
    git push -u origin main
    ```
 
