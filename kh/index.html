@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OneKH - សម្រាប់ការងារការិយាល័យ និងជំនួយក្នុងការរៀបចំអត្ថបទភាសាខ្មែរ។">
+    <meta name="author" content="OneKH">
+    <meta name="keywords" content="OneKH, ឧបករណ៍ការិយាល័យភាសាខ្មែរ, ការរៀបចំអត្ថបទភាសាខ្មែរ, Khmer office tools, Khmer text processing">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
+    <link rel="canonical" href="https://kh1.net/kh/">
+    <link rel="alternate" hreflang="en" href="https://kh1.net/">
+    <link rel="alternate" hreflang="km" href="https://kh1.net/kh/">
+    <link rel="alternate" hreflang="x-default" href="https://kh1.net/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="OneKH">
+    <meta property="og:title" content="OneKH - ឆាប់ៗនេះ">
+    <meta property="og:description" content="មជ្ឈមណ្ឌលឧបករណ៍ការិយាល័យ និងការរៀបចំអត្ថបទភាសាខ្មែរ។">
+    <meta property="og:url" content="https://kh1.net/kh/">
+    <meta property="og:locale" content="km_KH">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OneKH - ឆាប់ៗនេះ">
+    <meta name="twitter:description" content="សម្រាប់ការងារការិយាល័យ និងជំនួយក្នុងការរៀបចំអត្ថបទភាសាខ្មែរ។">
+    <title>OneKH - ឆាប់ៗនេះ</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "OneKH",
+            "url": "https://kh1.net/kh/",
+            "description": "មជ្ឈមណ្ឌលឧបករណ៍ការិយាល័យ និងការរៀបចំអត្ថបទភាសាខ្មែរ។",
+            "inLanguage": "km",
+            "sameAs": [
+                "https://t.me/kh1tools"
+            ]
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Noto+Sans+Khmer:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Khmer', 'Khmer OS Siemreap', 'Khmer OS Battambang', 'Khmer OS', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 25px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            background: #e9ecef;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .logo {
+            font-family: 'Segoe UI', 'Manrope', 'Noto Sans Khmer', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .description {
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .status {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .contact-title {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+        }
+
+        .telegram-btn:hover {
+            background: #006ba1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+        }
+
+        .telegram-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .features {
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .feature {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .feature-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 50px 25px 40px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .lang-switcher {
+                top: 15px;
+                right: 15px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container" role="main">
+        <div class="lang-switcher">
+            <a href="../index.html" class="lang-btn">EN</a>
+            <a href="#" class="lang-btn active">ខ្មែរ</a>
+        </div>
+
+        <h1 class="logo">OneKH</h1>
+        <h2 class="tagline">កន្លែងតែមួយសម្រាប់ភាសាខ្មែរ</h2>
+        
+        <div class="status">ឆាប់ៗនេះ</div>
+        
+        <p class="description">
+            <b>សម្រាប់ការងារការិយាល័យ និងជំនួយក្នុងការរៀបចំអត្ថបទភាសាខ្មែរ។</b> <br>
+            <i>ក្រុមការងារកំពុងបង្កើតឧបករណ៍ពិសេសជាជំនួយដល់ការសរសេរភាសាខ្មែរឱ្យកាន់តែងាយស្រួល មានប្រសិទ្ធភាព និងប្រកបដោយភាពជឿរជាក់។</i>
+        </p>
+
+        <section class="features" aria-label="លក្ខណៈពិសេស">
+            <article class="feature">
+                <h3 class="feature-title">📝 ឧបករណ៍ការិយាល័យ</h3>
+                <p class="feature-text">ឧបករណ៍ប្រើប្រាស់ការិយាល័យគ្រប់ជ្រុងជ្រោយដែលងាយស្រួលជាមួយភាសាខ្មែរ</p>
+            </article>
+            <article class="feature">
+                <h3 class="feature-title">✨ ការរៀបចំអត្ថបទ</h3>
+                <p class="feature-text">ឧបករណ៍កែប្រែ និងធ្វើទ្រង់ទ្រាយអត្ថបទកម្រិតខ្ពស់</p>
+            </article>
+            <article class="feature">
+                <h3 class="feature-title">🚀 ងាយស្រួលប្រើប្រាស់</h3>
+                <p class="feature-text">ចំណុចប្រទាក់សាមញ្ញ និងងាយយល់ ត្រូវបានរចនាសម្រាប់មនុស្សគ្រប់គ្នា</p>
+            </article>
+        </section>
+
+        <section class="contact" aria-label="ទាក់ទងមកក្រុមការងារ">
+            <p class="contact-title">ទាក់ទងក្រុមការងារ</p>
+            <a href="https://t.me/kh1tools" target="_blank" rel="noopener noreferrer" class="telegram-btn">
+                <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.99C15.37 16.74 15.09 16.99 14.83 17.02C14.25 17.07 13.81 16.64 13.25 16.27C12.37 15.69 11.87 15.33 11.02 14.77C10.03 14.12 10.67 13.76 11.24 13.18C11.39 13.03 13.95 10.7 14 10.49C14.0069 10.4582 14.006 10.4252 13.9973 10.3938C13.9886 10.3624 13.9724 10.3337 13.95 10.31C13.89 10.26 13.81 10.28 13.74 10.29C13.65 10.31 12.25 11.24 9.52 13.08C9.12 13.35 8.76 13.49 8.44 13.48C8.08 13.47 7.4 13.28 6.89 13.11C6.26 12.91 5.77 12.8 5.81 12.45C5.83 12.27 6.08 12.09 6.55 11.9C9.47 10.63 11.41 9.79 12.38 9.39C15.16 8.23 15.73 8.03 16.11 8.03C16.19 8.03 16.38 8.05 16.5 8.15C16.6 8.23 16.63 8.34 16.64 8.42C16.63 8.48 16.65 8.66 16.64 8.8Z" fill="currentColor"/>
+                </svg>
+                ទាក់ទងតាម Telegram
+            </a>
+        </section>
+    </main>
+</body>
+</html>
